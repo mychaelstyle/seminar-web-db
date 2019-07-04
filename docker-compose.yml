@@ -1,0 +1,15 @@
+version: '0.1'
+services:
+  db_seminar:
+    image: mysql:5.7
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: seminardb
+      MYSQL_USER: seminar
+      MYSQL_PASSWORD: seminardb
+
