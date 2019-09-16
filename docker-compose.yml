@@ -1,5 +1,14 @@
-version: '0.1'
+version: '3.2'
 services:
+  web:
+    build:
+      context: ./
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - "18080:80"
+    tty: true
+    stdin_open: true
   db_seminar:
     image: mysql:5.7
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
